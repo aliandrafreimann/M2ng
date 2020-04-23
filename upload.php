@@ -135,7 +135,7 @@ if(isset($action) && $action == "submit"){
 				<input class="answ" name="lines[0][answer]" placeholder="Vastus" type="" required>
 			</div>
 		</div>
-		<button name="action" value="submit">Vasta</button>
+		<button name="action" value="submit">Lisa</button>
 		<button type="button" onclick="addQuestion()">Lisa Küsimus</button>
 	</form>
 

@@ -33,13 +33,24 @@
 			text-decoration: none;
 		}
 
-
 		.exercises {
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
 			max-width: 990px;
 			margin: 0 auto;
+		}
+
+		.addbutton {
+			padding: 10px;
+			color: black;
+			text-decoration: none;
+			text-align: center;
+			font-family: Helvetica, Arial, sans-serif;
+			margin: 10px;
+
+			border-radius: 10px;
+			box-shadow: 10px 5px 5px #aaa;
 		}
 
 		.exercises > a {
@@ -58,16 +69,20 @@
 		}
 
 		.exercises .normal{
-			background-color: hsl(104, 100%, 70%);
+			background-color: #1c5484;
+			color: #dc741c;
+			font-family: Helvetica, Arial, sans-serif;
 		}
 
 		.exercises .hotkeys{
-			background-color: hsl(10, 100%, 70%);
+			background-color: #1c5484;
+			color: #dc741c;
+			font-family: Helvetica, Arial, sans-serif;
 		}
 	</style>
 </head>
 <body>
-	<nav><a href="upload.php">lisa Harjutus</a></nav>
+	<nav><a class="addbutton" href="upload.php">Lisa Harjutus</a></nav>
 
 	<div class="exercises">
 		<?php foreach(scandir("./exercises/") as $file):?>

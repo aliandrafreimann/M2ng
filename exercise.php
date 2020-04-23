@@ -5,6 +5,35 @@
 	<title></title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<style>
+		html, body{
+			height: 100%;
+			margin: 0;
+		}
+
+		body{
+			background-image: url("./backgroung.svg");
+			background-size: cover;
+		}
+
+		.content{
+			justify-content:center;
+			display:flex;
+			margin-top: 150px;
+		}
+
+		input{
+			margin-top: 25px;
+			margin-bottom: 25px;
+		}
+
+		.next{
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		.res{
+			font-size: 1.5em;
+		}
+
 		.leaderboardModal{
 			width: 100vw;
 			height: 100vh;
@@ -44,7 +73,9 @@
 	<p id="res"><span id="min">0</span> : <span id="sec">00</span> : <span id="msec">000</span> +<span id="pen">0</span></p>
 
 	<div class="leaderboardModal" style="display: none;">
-		<div id="leaderboard"></div>
+		<div id="leaderboard">
+			<span><strong>Name</strong></span> <span><strong>Time</strong></span> <span><strong>Mistakes</strong></span>
+		</div>
 		<form id="leaderboardForm"  action="">
 			<input id="name" placeholder="nimi" type="">
 			<button type="submit">Lisa Edetabelisse</button>
