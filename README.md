@@ -18,3 +18,13 @@ https://www.figma.com/file/kSSFp9MEBThKUz7QcTA7Jf/M2ng?node-id=0%3A1
 
 # Link mängule:
 https://ta18volke.itmajakas.ee/m2ng/
+
+# Tiim
+
+Uku Volke
+Joonas Hendrik Peet
+Martin Trumann
+Risto Siimer
+Kris Kristofer Burk
+Ingmar Treiberk
+Aliandra Freimann
