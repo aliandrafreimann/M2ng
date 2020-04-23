@@ -28,32 +28,115 @@ if(isset($action) && $action == "submit"){
 	<meta charset="UTF-8">
 	<title>Upload</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+		html, body{
+			height: 100%;
+			margin: 0;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			background-image: url("./backgroung.svg");
+			background-size: cover;
+			padding: 50px;
+		}
+
+		#form {
+			max-width: 1100px;
+			margin: auto;
+		}
+
+		#form input::placeholder {
+			color: #000f;
+			opacity: 1;
+		}
+
+		#form input {
+			padding: 10px;
+			text-align: center;
+
+			background: rgba(255, 255, 255, 0.6);
+			border: 1px #949292 solid;
+		}
+
+		#form button {
+			border: 0;
+			border-radius: 13px;
+
+			margin: 10px 5px;
+			padding: 5px 40px;
+
+			background: rgba(82, 77, 76, 0.4);
+
+			color: #000;
+		}
+
+		.name{
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.name input{
+			flex: 1;
+			margin: 5px;
+		}
+
+		#questions {
+			max-height: 230px;
+			overflow: auto;
+		}
+
+		#questions > div  {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+		}
+
+		#questions input {
+			flex: 1;
+			margin: 5px;
+		}
+
+		.radio {
+			margin: 5px;
+
+		}
+
+	</style>
 </head>
 <body>
 	<form id="form" action="" method="POST">
-		<input name="name" placeholder="Nimi" type="" required>
-		<input name="desc" placeholder="Kirjeldus" type="" required>
+		<div class="name">
+			<input name="name" placeholder="Nimi" type="" required>
+			<input name="desc" placeholder="Kirjeldus" type="" required>
+		</div>
 
-		<br>
+		<div class="radio">
+			<div>
+				<label for="normal">Küsimused</label>
+				<input id="normal" name="type" value="normal" type="radio" checked required>
+			</div>
 
-		<label for="normal">Küsimused</label>
-		<input id="normal" name="type" value="normal" type="radio" checked required>
-
-		<br>
-
-		<label for="hotkeys">Kiirklahvid</label>
-		<input id="hotkeys" name="type" value="hotkeys" type="radio" required>
-
-		<br>
+			<div>
+				<label for="hotkeys">Kiirklahvid</label>
+				<input id="hotkeys" name="type" value="hotkeys" type="radio" required>
+			</div>
+		</div>
 
 		<div id="questions">
 			<div id="questionLine">
-				<input name="lines[0][question]" placeholder="küsimus" type="" required>
-				<input class="answ" name="lines[0][answer]" placeholder="vastus" type="" required>
+				<input name="lines[0][question]" placeholder="Küsimus" type="" required>
+				<input class="answ" name="lines[0][answer]" placeholder="Vastus" type="" required>
 			</div>
 		</div>
-		<button name="action" value="submit">Submit</button>
-		<button type="button" onclick="addQuestion()">Add question</button>
+		<button name="action" value="submit">Vasta</button>
+		<button type="button" onclick="addQuestion()">Lisa Küsimus</button>
 	</form>
 
 	<script>
