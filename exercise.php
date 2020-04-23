@@ -63,14 +63,16 @@
 	</style>
 </head>
 <body>
+<img id="logo" src="Logo1.png"/>
 
+<div class="content">
 	<div class="input">
 		<div id="next"></div>
 		<input id="typField" disabled />
 		<div id="prevVal"></div>
-	</div>
 
-	<p id="res"><span id="min">0</span> : <span id="sec">00</span> : <span id="msec">000</span> +<span id="pen">0</span></p>
+		<p id="res"><span id="min">0</span> : <span id="sec">00</span> : <span id="msec">000</span> +<span id="pen">0</span></p>
+	</div>
 
 	<div class="leaderboardModal" style="display: none;">
 		<div id="leaderboard">
