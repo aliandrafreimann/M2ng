@@ -22,9 +22,15 @@ https://ta18volke.itmajakas.ee/m2ng/
 # Tiim
 
 Uku Volke
+
 Joonas Hendrik Peet
+
 Martin Trumann
+
 Risto Siimer
+
 Kris Kristofer Burk
+
 Ingmar Treiberk
+
 Aliandra Freimann
