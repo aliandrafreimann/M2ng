@@ -1,1 +1,1 @@
-# M2ng
+# Vaja esitada GitHub repositoorium, kus on README.md fail, milles on link Figma prototüübile, link töötavale rakendusele, lisaks on repositooriumis Toggl’e projekti raport pdf kuju, kus näha palju iga ülesande peale aega kulus.
