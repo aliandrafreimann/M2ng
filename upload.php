@@ -143,7 +143,7 @@ if(isset($action) && $action == "submit"){
 		const questions = document.querySelector("#questions");
 		const questionLine = document.querySelector("#questionLine");
 
-		const radios = document.querySelectorAll("#form > input[type=radio]");
+		const radios = document.querySelectorAll("#form input[type=radio]");
 
 		const questionElms = document.querySelectorAll("#questions .answ");
 
@@ -162,7 +162,7 @@ if(isset($action) && $action == "submit"){
 			clone.children[1].addEventListener("keydown", e => {
 				if(writeType == "hotkeys"){
 					e.preventDefault()
-					e.target.value = (e.ctrlKey  ? "Ctrl + ": "" ) + (e.shiftKey ? "Shift + ": "" ) + (e.altKey ? "Alt + ": "" ) + e.key.toLowerCase()
+					e.target.value = (e.ctrlKey  ? "Ctrl + ": "" ) + (e.shiftKey ? "Shift + ": "" ) + (e.altKey ? "Alt + ": "" ) + toSym(e.keyCode, e.key)
 					return false;
 				}
 			})
@@ -171,11 +171,40 @@ if(isset($action) && $action == "submit"){
 			counter++;
 		}
 
+		function toSym(code, key){
+			switch(code){
+				case 48:  return "0"; break;
+				case 49:  return "1"; break;
+				case 50:  return "2"; break;
+				case 51:  return "3"; break;
+				case 52:  return "4"; break;
+				case 53:  return "5"; break;
+				case 54:  return "6"; break;
+				case 55:  return "7"; break;
+				case 56:  return "8"; break;
+				case 57:  return "9"; break;
+				case 59:  return ";"; break;
+				case 61:  return "="; break;
+				case 163: return "#"; break;
+				case 173: return "-"; break;
+				case 188: return ","; break;
+				case 190: return "."; break;
+				case 191: return "/"; break;
+				case 192: return "`"; break;
+				case 219: return "["; break;
+				case 220: return "\\"; break;
+				case 221: return "]"; break;
+				case 222: return "'"; break;
+				default:  return key; break;
+			}
+		}
+
+
 		Array.from(questionElms).forEach(i => {
 			i.addEventListener("keydown", e => {
 				if(writeType == "hotkeys"){
 					e.preventDefault()
-					e.target.value = (e.ctrlKey  ? "Ctrl + ": "" ) + (e.shiftKey ? "Shift + ": "" ) + (e.altKey ? "Alt + ": "" ) + e.key.toLowerCase()
+					e.target.value = (e.ctrlKey  ? "Ctrl + ": "" ) + (e.shiftKey ? "Shift + ": "" ) + (e.altKey ? "Alt + ": "" ) + toSym(e.keyCode, e.key)
 					return false;
 				}
 			})
