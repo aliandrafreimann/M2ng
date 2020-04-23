@@ -140,37 +140,6 @@ if(isset($action) && $action == "submit"){
 	</form>
 
 	<script>
-		const questions = document.querySelector("#questions");
-		const questionLine = document.querySelector("#questionLine");
-
-		const radios = document.querySelectorAll("#form input[type=radio]");
-
-		const questionElms = document.querySelectorAll("#questions .answ");
-
-		let counter = 1;
-		let writeType = "normal";
-
-		function addQuestion(){
-			const clone = questionLine.cloneNode(true)
-			clone.id = ""
-			Array.from(clone.children).forEach((i, index) => {
-				i.name = "lines[" + counter + "][" + i.name.split("[")[2]
-				i.value = "";
-			})
-
-
-			clone.children[1].addEventListener("keydown", e => {
-				if(writeType == "hotkeys"){
-					e.preventDefault()
-					e.target.value = (e.ctrlKey  ? "Ctrl + ": "" ) + (e.shiftKey ? "Shift + ": "" ) + (e.altKey ? "Alt + ": "" ) + toSym(e.keyCode, e.key)
-					return false;
-				}
-			})
-
-			questions.appendChild(clone)
-			counter++;
-		}
-
 		function toSym(code, key){
 			switch(code){
 				case 48:  return "0"; break;
@@ -199,10 +168,41 @@ if(isset($action) && $action == "submit"){
 			}
 		}
 
+		const questions = document.querySelector("#questions");
+		const questionLine = document.querySelector("#questionLine");
+
+		const radios = document.querySelectorAll("#form input[type=radio]");
+
+		const questionElms = document.querySelectorAll("#questions .answ");
+
+		let counter = 1;
+		let writeType = "normal";
+
+		function addQuestion(){
+			const clone = questionLine.cloneNode(true)
+			clone.id = ""
+			Array.from(clone.children).forEach((i, index) => {
+				i.name = "lines[" + counter + "][" + i.name.split("[")[2]
+				i.value = "";
+			})
+
+
+			clone.children[1].addEventListener("keydown", e => {
+				if(writeType == "hotkeys" && e.keyCode !=13){
+					e.preventDefault()
+					e.target.value = (e.ctrlKey  ? "Ctrl + ": "" ) + (e.shiftKey ? "Shift + ": "" ) + (e.altKey ? "Alt + ": "" ) + toSym(e.keyCode, e.key)
+					return false;
+				}
+			})
+
+			questions.appendChild(clone)
+			counter++;
+		}
+
 
 		Array.from(questionElms).forEach(i => {
 			i.addEventListener("keydown", e => {
-				if(writeType == "hotkeys"){
+				if(writeType == "hotkeys" && e.keyCode != 13){
 					e.preventDefault()
 					e.target.value = (e.ctrlKey  ? "Ctrl + ": "" ) + (e.shiftKey ? "Shift + ": "" ) + (e.altKey ? "Alt + ": "" ) + toSym(e.keyCode, e.key)
 					return false;
