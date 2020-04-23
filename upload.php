@@ -17,7 +17,7 @@ if(isset($action) && $action == "submit"){
 
 	file_put_contents("./exercises/" . $id  . ".json", json_encode($filPost));
 
-	header("Location: ../");
+	header("Location: index.php");
 }
 
 ?>
