@@ -13,6 +13,7 @@
 			left: 0;
 
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 
@@ -20,6 +21,16 @@
 
 			background-color: #aaaa
 		}
+
+		#leaderboard {
+			display: grid;
+			grid-template-columns: auto auto auto;
+
+			width: 33%;
+
+			text-align: center;
+		}
+
 	</style>
 </head>
 <body>
@@ -33,6 +44,7 @@
 	<p id="res"><span id="min">0</span> : <span id="sec">00</span> : <span id="msec">000</span> +<span id="pen">0</span></p>
 
 	<div class="leaderboardModal" style="display: none;">
+		<div id="leaderboard"></div>
 		<form id="leaderboardForm"  action="">
 			<input id="name" placeholder="nimi" type="">
 			<button type="submit">Lisa Edetabelisse</button>
@@ -125,6 +137,7 @@
 
 	let mistakes = 0;
 
+
 	const id = <?= filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT) ?>
 
 	advFetch("./exercises/" + id + ".json").then(data => {
@@ -143,6 +156,7 @@
 		typField.addEventListener("keydown", e => {
 			if(!timer){
 				startWatch()
+				curMsec = (new Date()).getTime();
 			}
 
 			if(data.type == "hotkeys" && e.keyCode != 13){
@@ -162,14 +176,16 @@
 						if(typs[now]){
 							next.innerText = typs[now].val;
 						}else{
-							curTime = min + ":" + sec + ":" + msec
-
 							min_txt.innerText = min
 							sec_txt.innerText = sec
 							msec_txt.innerText = msec
 
-							leaderboardForm.parentElement.style.display = ""
+							time = min + ":" + sec + ":" + msec;
 
+
+							allMsec = ((new Date).getTime() -  curMsec );
+
+							leaderboardForm.parentElement.style.display = ""
 
 							stopWatch()
 						}
@@ -183,11 +199,34 @@
 		})
 	})
 
+	advFetch("./leaderboards/" + id + ".json").then(data => {
+		data.sort((a,b) => { return a.msec - b.msec })
+
+		data.forEach(line => {
+			let elm = document.getElementById("leaderboard")
+
+			let nameElm = document.createElement("span")
+			nameElm.innerText = line.name
+			elm.appendChild(nameElm)
+
+			let timeElm = document.createElement("span")
+			timeElm.innerText = line.time
+			elm.appendChild(timeElm)
+
+			let mistElm = document.createElement("span")
+			mistElm.innerText = line.mistakes
+			elm.appendChild(mistElm)
+
+		})
+
+	})
+
 	let leaderboardForm = document.getElementById("leaderboardForm")
 	leaderboardForm.addEventListener("submit", e => {
 		e.preventDefault()
 		let name = document.getElementById("name").value
-		advFetch("leaderboard.php", "POST", [id, name, curTime, mistakes])
+
+		advFetch("leaderboard.php", "POST", [id, name, time, allMsec, mistakes])
 		leaderboardForm.parentElement.style.display = "none"
 	})
 

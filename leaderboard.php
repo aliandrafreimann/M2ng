@@ -8,10 +8,10 @@
 
 		$curConArr = explode("\n", $curCon);
 
-		file_put_contents($file, '[' . "\n" . $curConArr[1] . ', {"name": "' . $in[1] . '", "time": "' . $in[2] . '", "mistakes": ' . $in[3] . '}' . "\n" . ']');
+		file_put_contents($file, '[' . "\n" . $curConArr[1] . ', {"name": "' . $in[1] . '", "time": "' . $in[2] . '", "msec": "' . $in[3] . '", "mistakes": ' . $in[4] . '}' . "\n" . ']');
 
 	}else{
-		file_put_contents($file, '[' . "\n" . '{"name": "' . $in[1] . '", "time": "' . $in[2] . '", "mistakes": ' . $in[3] . '}' . "\n" . ']');
+		file_put_contents($file, '[' . "\n" . '{"name": "' . $in[1] . '", "time": "' . $in[2] . '", "msec": "' . $in[3] . '", "mistakes": ' . $in[4] . '}' . "\n" . ']');
 	}
 
 	echo '{"success": 1}';
