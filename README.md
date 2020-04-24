@@ -11,7 +11,7 @@ Näite teemadeks on esilehel:
 *Eesti keele tõlkimine inglise keelde
 
 Kahe päevaga jõudsime teha prototüübi, kirjutada valmis algupärase esilehe, harjutuse lisamise lehe, mängulehe ning nende funktsionaalsused.
-Võimalik on lisada mänguteemasid koos küsimuse ning vastusega. Samuti saad ka navigeeruda lehtedel ringi ning mängida valitud teemat. Mängu alustades käivitub stopper mille taga on + märgiga õigete vastuste arv. Küsimused tulevad erinevas järjekorras. 
+Võimalik on lisada mänguteemasid koos küsimuse ning vastusega. Samuti saad ka navigeeruda lehtedel ringi ning mängida valitud teemat. Mängu alustades käivitub stopper mille taga on +'märgiga vigade arv. Küsimused tulevad erinevas järjekorras. 
 
 # Figma prototüüp:
 https://www.figma.com/file/kSSFp9MEBThKUz7QcTA7Jf/M2ng?node-id=0%3A1
