@@ -25,8 +25,6 @@ https://ta18volke.itmajakas.ee/m2ng/
 
 Uku Volke
 
-Joonas Hendrik Peet
-
 Martin Trumann
 
 Risto Siimer
